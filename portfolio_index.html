@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aryan Singh — AI/ML Engineer</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: rgba(255,255,255,0.08);
+    --accent: #7c6ff7;
+    --accent-dim: rgba(124,111,247,0.12);
+    --text: #e8e8f0;
+    --muted: #8888a0;
+    --green: #4ade80;
+    --green-dim: rgba(74,222,128,0.1);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items:center; justify-content:space-between;
+    height: 56px;
+  }
+  .nav-logo { font-size:15px; font-weight:600; color:var(--text); letter-spacing:.3px; }
+  .nav-logo span { color:var(--accent); }
+  .nav-links { display:flex; gap:2rem; }
+  .nav-links a {
+    color: var(--muted); text-decoration:none; font-size:13px;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color:var(--text); }
+  .nav-cta {
+    background: var(--accent); color:#fff; text-decoration:none;
+    font-size:13px; font-weight:500; padding:6px 16px;
+    border-radius:6px; transition: opacity .2s;
+  }
+  .nav-cta:hover { opacity:.85; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items:center; justify-content:center;
+    padding: 80px 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; top:-200px; left:50%; transform:translateX(-50%);
+    width:600px; height:600px; border-radius:50%;
+    background: radial-gradient(ellipse, rgba(124,111,247,0.15) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-inner { max-width:700px; text-align:center; position:relative; }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:6px;
+    background: var(--green-dim); border:1px solid rgba(74,222,128,0.25);
+    color:var(--green); font-size:12px; font-weight:500;
+    padding:4px 12px; border-radius:20px; margin-bottom:1.5rem;
+  }
+  .badge-dot { width:6px; height:6px; border-radius:50%; background:var(--green); }
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    font-weight: 700; line-height:1.15;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+  }
+  h1 .accent { color:var(--accent); }
+  .hero-sub {
+    font-size:16px; color:var(--muted); margin-bottom:2rem;
+    max-width:520px; margin-left:auto; margin-right:auto;
+  }
+  .hero-tags { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:2.5rem; }
+  .tag {
+    background: var(--accent-dim); border:1px solid rgba(124,111,247,0.25);
+    color:#b8b2ff; font-size:12px; padding:4px 12px; border-radius:20px;
+  }
+  .hero-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .btn-primary {
+    background:var(--accent); color:#fff; text-decoration:none;
+    font-size:14px; font-weight:500; padding:10px 24px; border-radius:8px;
+    transition:opacity .2s;
+  }
+  .btn-primary:hover { opacity:.85; }
+  .btn-outline {
+    background:transparent; color:var(--text); text-decoration:none;
+    font-size:14px; font-weight:500; padding:10px 24px; border-radius:8px;
+    border:1px solid var(--border); transition:border-color .2s;
+  }
+  .btn-outline:hover { border-color:rgba(255,255,255,0.25); }
+
+  /* SECTIONS */
+  section { padding: 80px 2rem; max-width:900px; margin:0 auto; }
+  .section-label {
+    font-size:11px; font-weight:600; color:var(--accent); letter-spacing:2px;
+    text-transform:uppercase; margin-bottom:.5rem;
+  }
+  .section-title { font-size:1.8rem; font-weight:700; margin-bottom:2.5rem; letter-spacing:-.5px; }
+  hr.divider {
+    border:none; border-top:1px solid var(--border);
+    max-width:900px; margin:0 auto;
+  }
+
+  /* STATS */
+  .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; margin-bottom:3rem; }
+  .stat-card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:1.25rem;
+  }
+  .stat-val { font-size:1.8rem; font-weight:700; color:var(--accent); }
+  .stat-label { font-size:12px; color:var(--muted); margin-top:2px; }
+
+  /* EXPERIENCE */
+  .exp-list { display:flex; flex-direction:column; gap:1px; }
+  .exp-item {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:1.5rem; margin-bottom:12px;
+    transition: border-color .2s;
+  }
+  .exp-item:hover { border-color:rgba(124,111,247,0.3); }
+  .exp-top { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .exp-org { font-size:12px; color:var(--accent); font-weight:600; margin-bottom:3px; }
+  .exp-role { font-size:15px; font-weight:600; color:var(--text); }
+  .exp-date { font-size:12px; color:var(--muted); white-space:nowrap; margin-top:2px; }
+  .exp-bullets { margin-top:12px; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:6px; }
+  .exp-bullets li {
+    font-size:13px; color:var(--muted); padding-left:14px; position:relative; line-height:1.6;
+  }
+  .exp-bullets li::before { content:"→"; position:absolute; left:0; color:var(--accent); font-size:11px; top:2px; }
+  .exp-tag { display:inline-block; background:rgba(255,255,255,0.05); color:var(--muted); font-size:11px; padding:2px 8px; border-radius:4px; margin:2px; }
+
+  /* PROJECTS */
+  .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+  .project-card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:1.5rem;
+    display:flex; flex-direction:column;
+    transition: border-color .2s, transform .2s;
+  }
+  .project-card:hover { border-color:rgba(124,111,247,0.35); transform:translateY(-2px); }
+  .project-icon {
+    width:40px; height:40px; border-radius:8px; background:var(--accent-dim);
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px; margin-bottom:1rem;
+  }
+  .project-name { font-size:15px; font-weight:600; margin-bottom:6px; }
+  .project-desc { font-size:13px; color:var(--muted); line-height:1.6; flex:1; }
+  .project-footer { margin-top:1rem; display:flex; gap:6px; flex-wrap:wrap; }
+  .project-tag { font-size:11px; background:var(--accent-dim); color:#b8b2ff; padding:2px 8px; border-radius:4px; }
+  .project-link {
+    display:inline-flex; align-items:center; gap:4px;
+    font-size:12px; color:var(--accent); text-decoration:none; margin-top:10px;
+    transition: gap .15s;
+  }
+  .project-link:hover { gap:7px; }
+
+  /* SKILLS */
+  .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+  .skill-group {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:1.25rem;
+  }
+  .skill-group-title { font-size:12px; font-weight:600; color:var(--accent); margin-bottom:10px; text-transform:uppercase; letter-spacing:.5px; }
+  .skill-tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .skill-tag {
+    background:rgba(255,255,255,0.05); color:var(--text);
+    font-size:12px; padding:4px 10px; border-radius:6px;
+    border:1px solid var(--border);
+  }
+
+  /* ACHIEVEMENTS */
+  .ach-list { display:flex; flex-direction:column; gap:12px; }
+  .ach-item {
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:10px; padding:1rem 1.25rem;
+  }
+  .ach-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+  .ach-title { font-size:14px; font-weight:500; }
+  .ach-sub { font-size:12px; color:var(--muted); margin-top:2px; }
+
+  /* CONTACT */
+  .contact-box {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:16px; padding:2.5rem; text-align:center;
+  }
+  .contact-box h3 { font-size:1.4rem; margin-bottom:.5rem; }
+  .contact-box p { color:var(--muted); font-size:14px; margin-bottom:1.5rem; }
+  .contact-links { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .contact-link {
+    display:flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,0.05); border:1px solid var(--border);
+    color:var(--text); text-decoration:none; font-size:13px;
+    padding:8px 18px; border-radius:8px;
+    transition: border-color .2s;
+  }
+  .contact-link:hover { border-color:rgba(255,255,255,0.2); }
+
+  /* FOOTER */
+  footer {
+    text-align:center; padding:2rem;
+    color:var(--muted); font-size:12px;
+    border-top:1px solid var(--border);
+  }
+
+  /* MOBILE */
+  @media(max-width:600px) {
+    .nav-links { display:none; }
+    nav { padding:0 1rem; }
+    section { padding:60px 1rem; }
+    .hero { padding:80px 1rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Aryan<span>.</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="mailto:aryansingh4653@gmail.com" class="nav-cta">Hire me</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      Open to AI/ML opportunities
+    </div>
+    <h1>
+      Aryan Singh<br>
+      <span class="accent">AI/ML Engineer</span>
+    </h1>
+    <p class="hero-sub">
+      B.Tech CSE graduate with research experience at <strong style="color:var(--text)">ISRO</strong> and <strong style="color:var(--text)">IIT Ropar</strong>. I build embedded ML systems, speech models, and computer vision pipelines — turning complex problems into deployable solutions.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">Speech & Audio ML</span>
+      <span class="tag">Computer Vision</span>
+      <span class="tag">Embedded AI</span>
+      <span class="tag">Deep Learning</span>
+      <span class="tag">Python</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View my work</a>
+      <a href="#contact" class="btn-outline">Get in touch</a>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT / STATS -->
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="section-title">By the numbers</div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-val">25%</div>
+      <div class="stat-label">Accuracy gain over Vosk & Picovoice on TRISHNA satellite wake-word model</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">Top 0.3%</div>
+      <div class="stat-label">Flipkart GRID 6.0 — out of 100,000+ participants nationwide</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">90%+</div>
+      <div class="stat-label">Model accuracy across 3 domains at IIT Ropar</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">2x</div>
+      <div class="stat-label">User engagement improvement via predictive ML models at CodeClause</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">5,000+</div>
+      <div class="stat-label">Labeled images in custom quality control dataset</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">95%</div>
+      <div class="stat-label">OCR accuracy on assistive reading device built on Raspberry Pi</div>
+    </div>
+  </div>
+  <p style="color:var(--muted); font-size:14px; max-width:620px; line-height:1.8;">
+    I'm a Computer Science graduate from Mohanlal Sukhadia University, Udaipur. My interest is in the intersection of machine learning and real-world deployment — building systems that work under constraints, not just in notebooks. I spent three months at ISRO's Space Applications Centre building a mission-critical speech model for satellite operations, and two months at IIT Ropar researching applied AI across vision and NLP domains.
+  </p>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <div class="section-title">Where I've worked</div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <div>
+          <div class="exp-org">ISRO — Space Applications Centre, Ahmedabad</div>
+          <div class="exp-role">Research Scholar</div>
+        </div>
+        <div class="exp-date">Jan 2025 – Apr 2025</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Engineered a CNN + MFCC-based wake-word detection model for the TRISHNA satellite's voice command system, achieving 25% higher accuracy than Vosk and Picovoice at 80%+ ambient noise levels.</li>
+        <li>Applied noise augmentation techniques (white noise, time shifting) to overcome a small dataset constraint, improving model robustness under satellite payload conditions.</li>
+        <li>Validated real-time inference on resource-constrained embedded hardware; achieved sub-200ms response latency with fault-tolerant activation logic.</li>
+        <li>Collaborated with 5 ISRO scientists and engineers to integrate the model into the satellite's control system, improving overall voice-command efficiency by 20%.</li>
+      </ul>
+      <div style="margin-top:12px">
+        <span class="exp-tag">CNN</span><span class="exp-tag">MFCC</span><span class="exp-tag">TensorFlow</span><span class="exp-tag">Embedded ML</span><span class="exp-tag">Data Augmentation</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <div>
+          <div class="exp-org">IIT Ropar — CSE Dept. / iHub-AWaDH</div>
+          <div class="exp-role">Research Intern · AI Vicharaṇā Shālā Program</div>
+        </div>
+        <div class="exp-date">May 2024 – Jul 2024</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Researched and implemented AI systems across computer vision, cryptography, and recommendation domains using TensorFlow, OpenCV, and Keras; trained models achieving 90%+ accuracy across all task categories.</li>
+        <li>Delivered 3 functional prototypes — object detection, image steganography, and a neural recommendation engine — for academic review at IIT Ropar.</li>
+      </ul>
+      <div style="margin-top:12px">
+        <span class="exp-tag">OpenCV</span><span class="exp-tag">Keras</span><span class="exp-tag">Object Detection</span><span class="exp-tag">Steganography</span><span class="exp-tag">Recommendation Systems</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <div>
+          <div class="exp-org">CodeClause Pvt. Ltd., Udaipur</div>
+          <div class="exp-role">Data Science Intern</div>
+        </div>
+        <div class="exp-date">Dec 2023 – Jan 2024</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Applied K-means clustering on real user behavioural data to personalise push notification content and timing, doubling user engagement (100% increase) over a 4-week A/B test cycle.</li>
+      </ul>
+      <div style="margin-top:12px">
+        <span class="exp-tag">K-means</span><span class="exp-tag">Scikit-learn</span><span class="exp-tag">Data Mining</span><span class="exp-tag">A/B Testing</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <div class="section-title">Things I've built</div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-icon">&#x1F6F0;</div>
+      <div class="project-name">TRISHNA Satellite Wake-Word System</div>
+      <div class="project-desc">CNN-based binary wake-word classifier for ISRO's TRISHNA satellite voice command interface. MFCC feature extraction + noise augmentation pipeline. Outperformed Vosk and Picovoice by 25% in high-noise environments.</div>
+      <div class="project-footer">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">TensorFlow</span>
+        <span class="project-tag">MFCC</span>
+        <span class="project-tag">Embedded</span>
+      </div>
+      <a href="https://github.com/imAryanSingh" class="project-link">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">&#x1F4E6;</div>
+      <div class="project-name">Smart Vision Quality Control</div>
+      <div class="project-desc">Automated computer vision pipeline for product inspection — classifies 20+ product types and evaluates freshness/count for 30+ fruit and vegetable categories from a 5,000+ image dataset. Reduced manual inspection effort by 40%.</div>
+      <div class="project-footer">
+        <span class="project-tag">YOLOv8</span>
+        <span class="project-tag">Roboflow</span>
+        <span class="project-tag">Python</span>
+        <span class="project-tag">OpenCV</span>
+      </div>
+      <a href="https://github.com/imAryanSingh" class="project-link">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">&#x1F4D6;</div>
+      <div class="project-name">OCR Speaking Lamp</div>
+      <div class="project-desc">Raspberry Pi-powered accessibility device that reads printed text aloud in real time. Tesseract OCR + pyttsx3 text-to-speech pipeline. Achieves 95% OCR accuracy — designed for visually impaired users.</div>
+      <div class="project-footer">
+        <span class="project-tag">Raspberry Pi</span>
+        <span class="project-tag">Tesseract OCR</span>
+        <span class="project-tag">Python</span>
+        <span class="project-tag">pyttsx3</span>
+      </div>
+      <a href="https://github.com/imAryanSingh" class="project-link">View on GitHub →</a>
+    </div>
+
+    <div class="project-card" style="border-color:rgba(124,111,247,0.25); background: rgba(124,111,247,0.04);">
+      <div class="project-icon" style="background:rgba(124,111,247,0.2);">+</div>
+      <div class="project-name" style="color:var(--muted)">More coming soon</div>
+      <div class="project-desc">Currently building a real-time audio transcription and speaker diarization tool using Whisper + PyAnnote. Deploying on HuggingFace Spaces.</div>
+      <div class="project-footer">
+        <span class="project-tag">Whisper</span>
+        <span class="project-tag">PyAnnote</span>
+        <span class="project-tag">HuggingFace</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <div class="section-title">What I work with</div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">Languages</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">JavaScript</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">ML / AI Frameworks</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">OpenCV</span>
+        <span class="skill-tag">Keras</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Specialisations</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Speech Processing</span>
+        <span class="skill-tag">Computer Vision</span>
+        <span class="skill-tag">NLP</span>
+        <span class="skill-tag">Embedded ML</span>
+        <span class="skill-tag">OCR</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Tools & Platforms</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Git / GitHub</span>
+        <span class="skill-tag">Raspberry Pi</span>
+        <span class="skill-tag">Roboflow</span>
+        <span class="skill-tag">Google Colab</span>
+        <span class="skill-tag">MySQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label">Recognition</div>
+  <div class="section-title">Achievements & certifications</div>
+  <div class="ach-list">
+    <div class="ach-item">
+      <div class="ach-icon">&#x1F3C6;</div>
+      <div>
+        <div class="ach-title">Top 0.3% — Flipkart GRID 6.0 (100,000+ participants)</div>
+        <div class="ach-sub">Software Development, Information Security & Robotics tracks — Certificate of Merit, Flipkart</div>
+      </div>
+    </div>
+    <div class="ach-item">
+      <div class="ach-icon">&#x1F9EA;</div>
+      <div>
+        <div class="ach-title">Letter of Recommendation — ISRO Division Head</div>
+        <div class="ach-sub">Issued by Head of PCSVD, Space Applications Centre for outstanding research on the TRISHNA satellite project</div>
+      </div>
+    </div>
+    <div class="ach-item">
+      <div class="ach-icon">&#x1F947;</div>
+      <div>
+        <div class="ach-title">HackerRank Gold Medal — Python & SQL</div>
+        <div class="ach-sub">Certified outstanding performance in Python (Basic) and SQL (Basic) skill assessments</div>
+      </div>
+    </div>
+    <div class="ach-item">
+      <div class="ach-icon">&#x1F4BC;</div>
+      <div>
+        <div class="ach-title">Graduate Engineer Trainee — Secure Meters Ltd.</div>
+        <div class="ach-sub">Highest placement offer from the 2025 graduating batch at IET, MLSU Udaipur</div>
+      </div>
+    </div>
+    <div class="ach-item">
+      <div class="ach-icon">&#x1F393;</div>
+      <div>
+        <div class="ach-title">IIT Ropar — AI Vicharaṇā Shālā Completion Certificate</div>
+        <div class="ach-sub">2-month residential hands-on AI program, CSE Department, IIT Ropar × iHub-AWaDH</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box">
+    <h3>Let's work together</h3>
+    <p>I'm currently open to AI/ML engineering roles, research positions, and collaborative projects. Feel free to reach out.</p>
+    <div class="contact-links">
+      <a href="mailto:aryansingh4653@gmail.com" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        aryansingh4653@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/im-aryan-singh" target="_blank" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/imAryanSingh" target="_blank" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built by Aryan Singh · 2025
+</footer>
+
+</body>
+</html>
