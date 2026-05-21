@@ -225,6 +225,9 @@
     section { padding:60px 1rem; }
     .hero { padding:80px 1rem 3rem; }
   }
+
+  .fade-in { opacity:0; transform:translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
 </style>
 </head>
 <body>
@@ -236,6 +239,7 @@
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
+    <a href="#achievements">Recognition</a>
     <a href="#contact">Contact</a>
   </div>
   <a href="mailto:aryansingh4653@gmail.com" class="nav-cta">Hire me</a>
@@ -246,21 +250,21 @@
   <div class="hero-inner">
     <div class="hero-badge">
       <div class="badge-dot"></div>
-      Open to AI/ML opportunities
+      Open to AI/ML roles &amp; research positions
     </div>
     <h1>
       Aryan Singh<br>
       <span class="accent">AI/ML Engineer</span>
     </h1>
     <p class="hero-sub">
-      B.Tech CSE graduate with research experience at <strong style="color:var(--text)">ISRO</strong> and <strong style="color:var(--text)">IIT Ropar</strong>. I build embedded ML systems, speech models, and computer vision pipelines — turning complex problems into deployable solutions.
+      B.Tech CSE graduate with research at <strong style="color:var(--text)">ISRO Space Applications Centre</strong> and <strong style="color:var(--text)">IIT Ropar</strong>. Built a wake-word detection model for the TRISHNA satellite, a wildfire risk classifier from satellite imagery (F1: 0.914), and shipped a computer vision pipeline that ranked <strong style="color:var(--text)">top 0.3%</strong> in Flipkart GRID 6.0 among 1,00,000+ participants.
     </p>
     <div class="hero-tags">
-      <span class="tag">Speech & Audio ML</span>
+      <span class="tag">Speech &amp; Audio ML</span>
       <span class="tag">Computer Vision</span>
+      <span class="tag">Satellite Imagery</span>
       <span class="tag">Embedded AI</span>
       <span class="tag">Deep Learning</span>
-      <span class="tag">Python</span>
     </div>
     <div class="hero-btns">
       <a href="#projects" class="btn-primary">View my work</a>
@@ -275,34 +279,34 @@
 <section id="about">
   <div class="section-label">About</div>
   <div class="section-title">By the numbers</div>
-  <div class="stats-grid">
+  <div class="stats-grid fade-in">
     <div class="stat-card">
       <div class="stat-val">25%</div>
-      <div class="stat-label">Accuracy gain over Vosk & Picovoice on TRISHNA satellite wake-word model</div>
+      <div class="stat-label">Accuracy gain over Vosk &amp; Picovoice — TRISHNA satellite wake-word model</div>
     </div>
     <div class="stat-card">
       <div class="stat-val">Top 0.3%</div>
-      <div class="stat-label">Flipkart GRID 6.0 — out of 100,000+ participants nationwide</div>
+      <div class="stat-label">Flipkart GRID 6.0 — out of 1,00,000+ participants nationwide</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val">90%+</div>
-      <div class="stat-label">Model accuracy across 3 domains at IIT Ropar</div>
+      <div class="stat-val">95.3%</div>
+      <div class="stat-label">Accuracy on wildfire risk classifier from satellite imagery (F1: 0.914)</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val">2x</div>
-      <div class="stat-label">User engagement improvement via predictive ML models at CodeClause</div>
+      <div class="stat-val">89th</div>
+      <div class="stat-label">Percentile — GATE 2026, Computer Science &amp; IT (nationally qualified)</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val">5,000+</div>
-      <div class="stat-label">Labeled images in custom quality control dataset</div>
+      <div class="stat-val">&lt;200ms</div>
+      <div class="stat-label">Real-time inference latency on embedded satellite hardware</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val">95%</div>
-      <div class="stat-label">OCR accuracy on assistive reading device built on Raspberry Pi</div>
+      <div class="stat-val">2×</div>
+      <div class="stat-label">User engagement lift via clustering &amp; predictive ML at CodeClause</div>
     </div>
   </div>
-  <p style="color:var(--muted); font-size:14px; max-width:620px; line-height:1.8;">
-    I'm a Computer Science graduate from Mohanlal Sukhadia University, Udaipur. My interest is in the intersection of machine learning and real-world deployment — building systems that work under constraints, not just in notebooks. I spent three months at ISRO's Space Applications Centre building a mission-critical speech model for satellite operations, and two months at IIT Ropar researching applied AI across vision and NLP domains.
+  <p style="color:var(--muted); font-size:14px; max-width:660px; line-height:1.9; margin-top:2rem;" class="fade-in">
+    I'm a Computer Science graduate from Mohanlal Sukhadia University, Udaipur. I focus on the gap between ML research and real-world deployment — building systems that work under constraints, not just in notebooks. I spent four months at ISRO's Space Applications Centre engineering a mission-critical speech model for the TRISHNA satellite. My final-year project — a wildfire risk classifier trained on satellite imagery — was submitted as a GSoC 2026 proposal to the University of Alaska Anchorage. I was selected for a nationally competitive 2-month residential AI program at IIT Ropar and am GATE 2026 qualified (89th percentile, CS&amp;IT).
   </p>
 </section>
 
@@ -314,7 +318,7 @@
   <div class="section-title">Where I've worked</div>
   <div class="exp-list">
 
-    <div class="exp-item">
+    <div class="exp-item fade-in">
       <div class="exp-top">
         <div>
           <div class="exp-org">ISRO — Space Applications Centre, Ahmedabad</div>
@@ -323,34 +327,35 @@
         <div class="exp-date">Jan 2025 – Apr 2025</div>
       </div>
       <ul class="exp-bullets">
-        <li>Engineered a CNN + MFCC-based wake-word detection model for the TRISHNA satellite's voice command system, achieving 25% higher accuracy than Vosk and Picovoice at 80%+ ambient noise levels.</li>
-        <li>Applied noise augmentation techniques (white noise, time shifting) to overcome a small dataset constraint, improving model robustness under satellite payload conditions.</li>
+        <li>Engineered CNN + MFCC-based wake-word detection model for the TRISHNA satellite's voice command system, achieving 25% higher accuracy than Vosk and Picovoice at 80%+ ambient noise levels.</li>
+        <li>Overcame limited training data using noise augmentation (white noise + time shifting), tripling effective dataset size and significantly improving robustness under real satellite payload conditions.</li>
         <li>Validated real-time inference on resource-constrained embedded hardware; achieved sub-200ms response latency with fault-tolerant activation logic.</li>
-        <li>Collaborated with 5 ISRO scientists and engineers to integrate the model into the satellite's control system, improving overall voice-command efficiency by 20%.</li>
+        <li>Collaborated with 5 ISRO scientists and engineers to integrate the model into the satellite's embedded control system, improving overall voice-command efficiency by 20%. Received Letter of Recommendation from Division Head, PCSVD, SAC.</li>
       </ul>
       <div style="margin-top:12px">
-        <span class="exp-tag">CNN</span><span class="exp-tag">MFCC</span><span class="exp-tag">TensorFlow</span><span class="exp-tag">Embedded ML</span><span class="exp-tag">Data Augmentation</span>
+        <span class="exp-tag">CNN</span><span class="exp-tag">MFCC</span><span class="exp-tag">TensorFlow</span><span class="exp-tag">Librosa</span><span class="exp-tag">Embedded ML</span><span class="exp-tag">Noise Augmentation</span>
       </div>
     </div>
 
-    <div class="exp-item">
+    <div class="exp-item fade-in">
       <div class="exp-top">
         <div>
           <div class="exp-org">IIT Ropar — CSE Dept. / iHub-AWaDH</div>
-          <div class="exp-role">Research Intern · AI Vicharaṇā Shālā Program</div>
+          <div class="exp-role">Research Intern · AI Vicharaṇā Shālā</div>
         </div>
         <div class="exp-date">May 2024 – Jul 2024</div>
       </div>
       <ul class="exp-bullets">
-        <li>Researched and implemented AI systems across computer vision, cryptography, and recommendation domains using TensorFlow, OpenCV, and Keras; trained models achieving 90%+ accuracy across all task categories.</li>
-        <li>Delivered 3 functional prototypes — object detection, image steganography, and a neural recommendation engine — for academic review at IIT Ropar.</li>
+        <li>Selected for nationally competitive 2-month residential AI programme at IIT Ropar (CSE Dept. × iHub-AWaDH, DST-funded AI hub) — one of 30 participants chosen across India.</li>
+        <li>Studied and implemented AI systems across computer vision (object detection, OpenCV), steganography (LSB encoding, Python), and recommendation engines (collaborative filtering, K-means, Plotly 3D visualisation).</li>
+        <li>Gained in-depth exposure to CNN architectures, data augmentation, and model evaluation — knowledge directly applied in the subsequent TRISHNA satellite ML project at ISRO.</li>
       </ul>
       <div style="margin-top:12px">
-        <span class="exp-tag">OpenCV</span><span class="exp-tag">Keras</span><span class="exp-tag">Object Detection</span><span class="exp-tag">Steganography</span><span class="exp-tag">Recommendation Systems</span>
+        <span class="exp-tag">OpenCV</span><span class="exp-tag">Keras</span><span class="exp-tag">Object Detection</span><span class="exp-tag">Steganography</span><span class="exp-tag">Recommendation Systems</span><span class="exp-tag">Plotly</span>
       </div>
     </div>
 
-    <div class="exp-item">
+    <div class="exp-item fade-in">
       <div class="exp-top">
         <div>
           <div class="exp-org">CodeClause Pvt. Ltd., Udaipur</div>
@@ -359,10 +364,11 @@
         <div class="exp-date">Dec 2023 – Jan 2024</div>
       </div>
       <ul class="exp-bullets">
-        <li>Applied K-means clustering on real user behavioural data to personalise push notification content and timing, doubling user engagement (100% increase) over a 4-week A/B test cycle.</li>
+        <li>Applied K-means clustering on real user behavioural data to personalise push notification content and timing, resulting in 100% increase in user engagement over a 4-week A/B test cycle.</li>
+        <li>Built an interactive Power BI dashboard analysing e-commerce revenue, customer behaviour, product category trends, and regional performance — visualising 500K+ transactions with 8+ charts and DAX measures.</li>
       </ul>
       <div style="margin-top:12px">
-        <span class="exp-tag">K-means</span><span class="exp-tag">Scikit-learn</span><span class="exp-tag">Data Mining</span><span class="exp-tag">A/B Testing</span>
+        <span class="exp-tag">K-means</span><span class="exp-tag">Scikit-learn</span><span class="exp-tag">Power BI</span><span class="exp-tag">DAX</span><span class="exp-tag">A/B Testing</span>
       </div>
     </div>
 
@@ -377,54 +383,85 @@
   <div class="section-title">Things I've built</div>
   <div class="projects-grid">
 
-    <div class="project-card">
+    <div class="project-card fade-in">
       <div class="project-icon">&#x1F6F0;</div>
       <div class="project-name">TRISHNA Satellite Wake-Word System</div>
-      <div class="project-desc">CNN-based binary wake-word classifier for ISRO's TRISHNA satellite voice command interface. MFCC feature extraction + noise augmentation pipeline. Outperformed Vosk and Picovoice by 25% in high-noise environments.</div>
+      <div class="project-desc">CNN + MFCC binary wake-word classifier for ISRO's TRISHNA satellite voice command system. Noise augmentation pipeline (white noise + time shift). Outperformed Vosk and Picovoice by 25% at 80%+ ambient noise. Sub-200ms inference on embedded hardware.</div>
       <div class="project-footer">
-        <span class="project-tag">Python</span>
         <span class="project-tag">TensorFlow</span>
+        <span class="project-tag">Librosa</span>
         <span class="project-tag">MFCC</span>
+        <span class="project-tag">CNN</span>
         <span class="project-tag">Embedded</span>
       </div>
-      <a href="https://github.com/imAryanSingh" class="project-link">View on GitHub →</a>
+      <a href="https://github.com/imAryanSingh/Wakeup-Word-Detection-Model-for-voice-commanding-system" target="_blank" class="project-link">View on GitHub →</a>
     </div>
 
-    <div class="project-card">
+    <div class="project-card fade-in" style="border-color:rgba(74,222,128,0.25);">
+      <div class="project-icon" style="background:rgba(74,222,128,0.12);">&#x1F525;</div>
+      <div class="project-name">Wildfire Risk Prediction <span style="font-size:11px;color:var(--green);font-weight:400;margin-left:4px">GSoC 2026</span></div>
+      <div class="project-desc">CNN classifier trained on 2,000+ labelled satellite images of boreal forests — 95.3% accuracy, 94% precision, 96% recall, F1: 0.914. Deployed as a live Streamlit web app that accepts satellite image uploads and returns fire/no-fire probability in real time. Submitted as GSoC 2026 proposal.</div>
+      <div class="project-footer">
+        <span class="project-tag">TensorFlow</span>
+        <span class="project-tag">OpenCV</span>
+        <span class="project-tag">Streamlit</span>
+        <span class="project-tag">Satellite Data</span>
+        <span class="project-tag">CNN</span>
+      </div>
+      <a href="https://github.com/imAryanSingh/Wildfire-Prediction-Using-Satellite-Image-GSoC" target="_blank" class="project-link">View on GitHub →</a>
+    </div>
+
+    <div class="project-card fade-in">
       <div class="project-icon">&#x1F4E6;</div>
       <div class="project-name">Smart Vision Quality Control</div>
-      <div class="project-desc">Automated computer vision pipeline for product inspection — classifies 20+ product types and evaluates freshness/count for 30+ fruit and vegetable categories from a 5,000+ image dataset. Reduced manual inspection effort by 40%.</div>
+      <div class="project-desc">End-to-end CV quality control pipeline — freshness detection (Keras CNN), product recognition (YOLOv8, 5,000+ images), OCR label extraction (Tesseract), and item counting. Deployed as a multi-page Streamlit app with SQLite logging. Ranked top 0.3% in Flipkart GRID 6.0.</div>
       <div class="project-footer">
         <span class="project-tag">YOLOv8</span>
         <span class="project-tag">Roboflow</span>
-        <span class="project-tag">Python</span>
+        <span class="project-tag">Streamlit</span>
+        <span class="project-tag">SQLite</span>
         <span class="project-tag">OpenCV</span>
       </div>
-      <a href="https://github.com/imAryanSingh" class="project-link">View on GitHub →</a>
+      <a href="https://github.com/imAryanSingh/Smart-Vision-Technology-Quality-Control" target="_blank" class="project-link">View on GitHub →</a>
     </div>
 
-    <div class="project-card">
+    <div class="project-card fade-in">
+      <div class="project-icon">&#x1F510;</div>
+      <div class="project-name">Image · Audio · Emoji Steganography</div>
+      <div class="project-desc">Three steganography techniques in one toolkit — LSB encoding in images, LSB encoding in audio files, and zero-width Unicode character encoding in emoji text. Built during IIT Ropar AI programme.</div>
+      <div class="project-footer">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">OpenCV</span>
+        <span class="project-tag">NumPy</span>
+        <span class="project-tag">wave</span>
+      </div>
+      <a href="https://github.com/imAryanSingh/Steganography" target="_blank" class="project-link">View on GitHub →</a>
+    </div>
+
+    <div class="project-card fade-in">
       <div class="project-icon">&#x1F4D6;</div>
       <div class="project-name">OCR Speaking Lamp</div>
-      <div class="project-desc">Raspberry Pi-powered accessibility device that reads printed text aloud in real time. Tesseract OCR + pyttsx3 text-to-speech pipeline. Achieves 95% OCR accuracy — designed for visually impaired users.</div>
+      <div class="project-desc">Raspberry Pi accessibility device that reads printed text aloud in real time. Tesseract OCR + pyttsx3 text-to-speech pipeline. 95% OCR accuracy — fully offline, designed for visually impaired users. No internet required.</div>
       <div class="project-footer">
         <span class="project-tag">Raspberry Pi</span>
         <span class="project-tag">Tesseract OCR</span>
-        <span class="project-tag">Python</span>
         <span class="project-tag">pyttsx3</span>
+        <span class="project-tag">OpenCV</span>
       </div>
-      <a href="https://github.com/imAryanSingh" class="project-link">View on GitHub →</a>
+      <a href="https://github.com/imAryanSingh/OCR-Speaking-lamp" target="_blank" class="project-link">View on GitHub →</a>
     </div>
 
-    <div class="project-card" style="border-color:rgba(124,111,247,0.25); background: rgba(124,111,247,0.04);">
-      <div class="project-icon" style="background:rgba(124,111,247,0.2);">+</div>
-      <div class="project-name" style="color:var(--muted)">More coming soon</div>
-      <div class="project-desc">Currently building a real-time audio transcription and speaker diarization tool using Whisper + PyAnnote. Deploying on HuggingFace Spaces.</div>
+    <div class="project-card fade-in">
+      <div class="project-icon">&#x1F6CD;</div>
+      <div class="project-name">Retail Recommendation System</div>
+      <div class="project-desc">Collaborative filtering engine (user-based + item-based) on 500K+ retail transactions. Item-based CF achieves Precision@10: 0.34, covering 52% of product catalogue. Interactive 3D Plotly visualisation for cluster analysis.</div>
       <div class="project-footer">
-        <span class="project-tag">Whisper</span>
-        <span class="project-tag">PyAnnote</span>
-        <span class="project-tag">HuggingFace</span>
+        <span class="project-tag">Scikit-learn</span>
+        <span class="project-tag">Pandas</span>
+        <span class="project-tag">Plotly</span>
+        <span class="project-tag">K-means</span>
       </div>
+      <a href="https://github.com/imAryanSingh/Recommendation-System-for-Retail-Stores" target="_blank" class="project-link">View on GitHub →</a>
     </div>
 
   </div>
@@ -437,17 +474,16 @@
   <div class="section-label">Skills</div>
   <div class="section-title">What I work with</div>
   <div class="skills-grid">
-    <div class="skill-group">
+    <div class="skill-group fade-in">
       <div class="skill-group-title">Languages</div>
       <div class="skill-tags">
         <span class="skill-tag">Python</span>
         <span class="skill-tag">C++</span>
         <span class="skill-tag">Java</span>
         <span class="skill-tag">SQL</span>
-        <span class="skill-tag">JavaScript</span>
       </div>
     </div>
-    <div class="skill-group">
+    <div class="skill-group fade-in">
       <div class="skill-group-title">ML / AI Frameworks</div>
       <div class="skill-tags">
         <span class="skill-tag">PyTorch</span>
@@ -455,26 +491,36 @@
         <span class="skill-tag">Scikit-learn</span>
         <span class="skill-tag">OpenCV</span>
         <span class="skill-tag">Keras</span>
+        <span class="skill-tag">Librosa</span>
+        <span class="skill-tag">Pytesseract</span>
+        <span class="skill-tag">Seaborn</span>
       </div>
     </div>
-    <div class="skill-group">
+    <div class="skill-group fade-in">
       <div class="skill-group-title">Specialisations</div>
       <div class="skill-tags">
         <span class="skill-tag">Speech Processing</span>
         <span class="skill-tag">Computer Vision</span>
-        <span class="skill-tag">NLP</span>
         <span class="skill-tag">Embedded ML</span>
+        <span class="skill-tag">Edge AI</span>
+        <span class="skill-tag">Satellite Imagery</span>
+        <span class="skill-tag">Recommendation Engines</span>
         <span class="skill-tag">OCR</span>
+        <span class="skill-tag">NLP</span>
       </div>
     </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Tools & Platforms</div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Tools &amp; Platforms</div>
       <div class="skill-tags">
+        <span class="skill-tag">Streamlit</span>
         <span class="skill-tag">Git / GitHub</span>
         <span class="skill-tag">Raspberry Pi</span>
         <span class="skill-tag">Roboflow</span>
+        <span class="skill-tag">Power BI</span>
         <span class="skill-tag">Google Colab</span>
         <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">SQLite</span>
+        <span class="skill-tag">Jupyter</span>
       </div>
     </div>
   </div>
@@ -485,43 +531,65 @@
 <!-- ACHIEVEMENTS -->
 <section id="achievements">
   <div class="section-label">Recognition</div>
-  <div class="section-title">Achievements & certifications</div>
+  <div class="section-title">Achievements &amp; certifications</div>
   <div class="ach-list">
-    <div class="ach-item">
-      <div class="ach-icon">&#x1F3C6;</div>
+
+    <div class="ach-item fade-in">
+      <div class="ach-icon">&#x1F4CA;</div>
       <div>
-        <div class="ach-title">Top 0.3% — Flipkart GRID 6.0 (100,000+ participants)</div>
-        <div class="ach-sub">Software Development, Information Security & Robotics tracks — Certificate of Merit, Flipkart</div>
+        <div class="ach-title">GATE 2026 Qualified — 89th Percentile, CS &amp; IT</div>
+        <div class="ach-sub">Nationally qualified in Computer Science &amp; Information Technology · All India Rank 24,672 out of 2,11,020 candidates · Valid until March 2029</div>
       </div>
     </div>
-    <div class="ach-item">
+
+    <div class="ach-item fade-in">
       <div class="ach-icon">&#x1F9EA;</div>
       <div>
-        <div class="ach-title">Letter of Recommendation — ISRO Division Head</div>
-        <div class="ach-sub">Issued by Head of PCSVD, Space Applications Centre for outstanding research on the TRISHNA satellite project</div>
+        <div class="ach-title">Letter of Recommendation — Division Head, ISRO SAC</div>
+        <div class="ach-sub">Issued by Head of PCSVD, Space Applications Centre, Ahmedabad — for outstanding research on the TRISHNA satellite voice command project</div>
       </div>
     </div>
-    <div class="ach-item">
+
+    <div class="ach-item fade-in">
+      <div class="ach-icon">&#x1F3C6;</div>
+      <div>
+        <div class="ach-title">Top 0.3% — Flipkart GRID 6.0 (1,00,000+ participants)</div>
+        <div class="ach-sub">Software Development, Information Security &amp; Robotics tracks — Certificate of Merit, Flipkart · Semi-finalist, Robotics Track</div>
+      </div>
+    </div>
+
+    <div class="ach-item fade-in">
+      <div class="ach-icon">&#x1F30D;</div>
+      <div>
+        <div class="ach-title">GSoC 2026 Proposal — Wildfire Risk Prediction</div>
+        <div class="ach-sub">Submitted to University of Alaska Anchorage — CNN satellite imagery classifier, F1: 0.914, 95.3% accuracy · Live Streamlit demo</div>
+      </div>
+    </div>
+
+    <div class="ach-item fade-in">
       <div class="ach-icon">&#x1F947;</div>
       <div>
-        <div class="ach-title">HackerRank Gold Medal — Python & SQL</div>
-        <div class="ach-sub">Certified outstanding performance in Python (Basic) and SQL (Basic) skill assessments</div>
+        <div class="ach-title">HackerRank Gold Medal — Python &amp; SQL</div>
+        <div class="ach-sub">Verified skill certifications: Python (Basic) — Feb 2024 · SQL (Basic) — May 2024</div>
       </div>
     </div>
-    <div class="ach-item">
+
+    <div class="ach-item fade-in">
       <div class="ach-icon">&#x1F4BC;</div>
       <div>
-        <div class="ach-title">Graduate Engineer Trainee — Secure Meters Ltd.</div>
+        <div class="ach-title">Graduate Engineer Trainee offer — Secure Meters Ltd.</div>
         <div class="ach-sub">Highest placement offer from the 2025 graduating batch at IET, MLSU Udaipur</div>
       </div>
     </div>
-    <div class="ach-item">
+
+    <div class="ach-item fade-in">
       <div class="ach-icon">&#x1F393;</div>
       <div>
         <div class="ach-title">IIT Ropar — AI Vicharaṇā Shālā Completion Certificate</div>
-        <div class="ach-sub">2-month residential hands-on AI program, CSE Department, IIT Ropar × iHub-AWaDH</div>
+        <div class="ach-sub">Nationally selected · 2-month residential hands-on AI programme · CSE Dept. × iHub-AWaDH · Grade A+</div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -531,7 +599,7 @@
 <section id="contact">
   <div class="contact-box">
     <h3>Let's work together</h3>
-    <p>I'm currently open to AI/ML engineering roles, research positions, and collaborative projects. Feel free to reach out.</p>
+    <p>Open to AI/ML engineering roles, research positions, and collaborative projects. Based in Udaipur — open to Bangalore, Hyderabad, and remote.</p>
     <div class="contact-links">
       <a href="mailto:aryansingh4653@gmail.com" class="contact-link">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
@@ -545,13 +613,25 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
         GitHub
       </a>
+      <a href="https://github.com/imAryanSingh/AryanSingh_Resume.pdf" target="_blank" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+        Resume PDF
+      </a>
     </div>
   </div>
 </section>
 
 <footer>
-  Thanks for Visiting 😊
+  <span style="color:var(--muted);font-size:12px">Aryan Singh · AI/ML Engineer · Udaipur, India · 2025</span>
 </footer>
+
+<script>
+// Scroll fade-in animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
