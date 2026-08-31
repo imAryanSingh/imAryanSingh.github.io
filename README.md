@@ -1,8 +1,8 @@
-# Aryan Singh — Portfolio
+# Aryan Singh
 
-A single-page personal portfolio site built with plain HTML, CSS, and vanilla JavaScript — no frameworks, no build step. Showcases research, internships, projects, and achievements in AI/ML.
+My portfolio site built with plain HTML, CSS, and vanilla JavaScript. Showcases my research, internships, projects, and achievements in AI/ML.
 
-**Live site:** _add your deployed URL here_
+**Live site:** https://imAryanSingh.github.io
 
 ![theme](https://img.shields.io/badge/theme-dark%20%2F%20light-7c6ff7)
 ![no-build](https://img.shields.io/badge/build-none%20required-4ade80)
